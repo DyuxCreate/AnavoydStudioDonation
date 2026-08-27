@@ -1,0 +1,2235 @@
+/* =========================================================
+   ANAVOYD STUDIO — HOME
+========================================================= */
+
+:root {
+
+    --black: #000000;
+
+    --yellow: #ffe600;
+
+    --gold: #ffb700;
+
+    --white: #f5f5f0;
+
+    --gray: #777766;
+
+    --dark-gray: #25251b;
+
+    --border: #29291a;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+
+body {
+
+    background: var(--black);
+
+    color: var(--white);
+
+    font-family:
+        'JetBrains Mono',
+        monospace;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   FUNDO BASE
+========================================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255, 230, 0, 0.055),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 183, 0, 0.025),
+            transparent 25%
+        ),
+
+        #000;
+
+    z-index: -10;
+
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.grid-background {
+
+    position: fixed;
+
+    inset: -100px;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255, 230, 0, 0.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255, 230, 0, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        55px 55px;
+
+    transform:
+        perspective(500px)
+        rotateX(55deg)
+        scale(1.8);
+
+    transform-origin:
+        center bottom;
+
+    opacity: 0.5;
+
+    animation:
+        gridMove 18s linear infinite;
+
+    z-index: -9;
+
+}
+
+
+@keyframes gridMove {
+
+    from {
+
+        background-position:
+            0 0,
+            0 0;
+
+    }
+
+    to {
+
+        background-position:
+            0 55px,
+            55px 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   BRILHO AMBIENTE
+========================================================= */
+
+.ambient-glow {
+
+    position: fixed;
+
+    width: 600px;
+    height: 600px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 230, 0, 0.08),
+            transparent 65%
+        );
+
+    filter: blur(25px);
+
+    animation:
+        ambientPulse 5s ease-in-out infinite;
+
+    z-index: -8;
+
+}
+
+
+@keyframes ambientPulse {
+
+    0%,
+    100% {
+
+        opacity: 0.5;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.9);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+
+    }
+
+}
+
+
+/* =========================================================
+   RADARES
+========================================================= */
+
+.radar {
+
+    position: fixed;
+
+    border:
+        1px solid
+        rgba(255, 230, 0, 0.07);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -7;
+
+}
+
+
+.radar::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: -1px;
+
+    width: 50%;
+    height: 1px;
+
+    transform-origin: left;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 230, 0, 0.3),
+            transparent
+        );
+
+    animation:
+        radarRotate 8s linear infinite;
+
+}
+
+
+.radar-one {
+
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+.radar-two {
+
+    width: 1100px;
+    height: 1100px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    opacity: 0.5;
+
+}
+
+
+@keyframes radarRotate {
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
+
+.particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -5;
+
+}
+
+
+.particles span {
+
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background:
+        var(--yellow);
+
+    box-shadow:
+        0 0 7px
+        var(--yellow);
+
+    opacity: 0;
+
+    animation:
+        particleFloat
+        linear
+        infinite;
+
+}
+
+
+.particles span:nth-child(1) {
+
+    left: 12%;
+    top: 80%;
+
+    animation-duration: 7s;
+
+}
+
+
+.particles span:nth-child(2) {
+
+    left: 25%;
+    top: 60%;
+
+    animation-duration: 10s;
+
+}
+
+
+.particles span:nth-child(3) {
+
+    left: 40%;
+    top: 90%;
+
+    animation-duration: 8s;
+
+}
+
+
+.particles span:nth-child(4) {
+
+    left: 53%;
+    top: 75%;
+
+    animation-duration: 12s;
+
+}
+
+
+.particles span:nth-child(5) {
+
+    left: 67%;
+    top: 85%;
+
+    animation-duration: 9s;
+
+}
+
+
+.particles span:nth-child(6) {
+
+    left: 78%;
+    top: 65%;
+
+    animation-duration: 11s;
+
+}
+
+
+.particles span:nth-child(7) {
+
+    left: 90%;
+    top: 90%;
+
+    animation-duration: 8s;
+
+}
+
+
+.particles span:nth-child(8) {
+
+    left: 17%;
+    top: 40%;
+
+    animation-duration: 13s;
+
+}
+
+
+.particles span:nth-child(9) {
+
+    left: 82%;
+    top: 35%;
+
+    animation-duration: 10s;
+
+}
+
+
+.particles span:nth-child(10) {
+
+    left: 58%;
+    top: 30%;
+
+    animation-duration: 7s;
+
+}
+
+
+@keyframes particleFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(0.5);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: 0.7;
+
+    }
+
+    80% {
+
+        opacity: 0.4;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-250px)
+            scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   SCANLINES
+========================================================= */
+
+.scanlines {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(255,255,255,0.025) 4px
+        );
+
+    pointer-events: none;
+
+    z-index: 50;
+
+    animation:
+        scanMove 10s linear infinite;
+
+}
+
+
+@keyframes scanMove {
+
+    from {
+
+        background-position:
+            0 0;
+
+    }
+
+    to {
+
+        background-position:
+            0 100vh;
+
+    }
+
+}
+
+
+/* =========================================================
+   VINHETA
+========================================================= */
+
+.vignette {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 50%,
+            rgba(0,0,0,0.88) 100%
+        );
+
+    pointer-events: none;
+
+    z-index: 49;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 90px;
+
+    padding:
+        0 4%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid var(--border);
+
+    z-index: 30;
+
+}
+
+
+.header::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -1px;
+
+    width: 25%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--yellow),
+            transparent
+        );
+
+    animation:
+        headerLine 5s ease-in-out infinite;
+
+}
+
+
+@keyframes headerLine {
+
+    0%,
+    100% {
+
+        width: 18%;
+
+    }
+
+    50% {
+
+        width: 32%;
+
+    }
+
+}
+
+
+.header-left {
+
+    width: 220px;
+
+}
+
+
+.system-indicator {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--yellow);
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.system-indicator span {
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        var(--yellow);
+
+    box-shadow:
+        0 0 7px
+        var(--yellow);
+
+    animation:
+        blink 2s infinite;
+
+}
+
+
+@keyframes blink {
+
+    50% {
+
+        opacity: 0.25;
+
+    }
+
+}
+
+
+.system-text {
+
+    color: var(--gray);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+nav {
+
+    display: flex;
+
+    gap: 28px;
+
+}
+
+
+nav a {
+
+    position: relative;
+
+    color: var(--gray);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    transition:
+        color 0.25s,
+        transform 0.25s;
+
+}
+
+
+nav a:hover {
+
+    color: var(--white);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+nav a.active {
+
+    color: var(--yellow);
+
+}
+
+
+nav a::before {
+
+    content: ">";
+
+    position: absolute;
+
+    left: -12px;
+
+    color: var(--yellow);
+
+    opacity: 0;
+
+    transition:
+        0.2s;
+
+}
+
+
+nav a:hover::before,
+nav a.active::before {
+
+    opacity: 1;
+
+}
+
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -9px;
+
+    width: 0;
+
+    height: 1px;
+
+    background:
+        var(--yellow);
+
+    transition:
+        0.25s;
+
+}
+
+
+nav a:hover::after,
+nav a.active::after {
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+
+.header-right {
+
+    width: 220px;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--gray);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    position: relative;
+
+}
+
+
+.online {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        var(--yellow);
+
+    box-shadow:
+        0 0 9px
+        var(--yellow);
+
+    animation:
+        blink 2s infinite;
+
+}
+
+
+.clock {
+
+    margin-left: 8px;
+
+    color: #4b4b3e;
+
+}
+
+
+/* =========================================================
+   STEAM LOGIN SUGGESTION
+========================================================= */
+
+.steam-login-suggestion {
+
+    position: absolute;
+
+    top: 34px;
+    right: 0;
+
+    width: 350px;
+
+    padding: 18px;
+
+    background:
+        rgba(3, 3, 2, 0.97);
+
+    border:
+        1px solid
+        rgba(255, 230, 0, 0.25);
+
+    box-shadow:
+        0 0 30px
+        rgba(0, 0, 0, 0.8),
+
+        inset 0 0 25px
+        rgba(255, 230, 0, 0.025);
+
+    backdrop-filter:
+        blur(10px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-10px)
+        scale(0.97);
+
+    transform-origin:
+        top right;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 100;
+
+}
+
+
+/* Pequeno marcador */
+
+.steam-login-suggestion::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -5px;
+    right: 30px;
+
+    width: 8px;
+    height: 8px;
+
+    background:
+        #030302;
+
+    border-left:
+        1px solid
+        rgba(255, 230, 0, 0.25);
+
+    border-top:
+        1px solid
+        rgba(255, 230, 0, 0.25);
+
+    transform:
+        rotate(45deg);
+
+}
+
+
+.steam-login-suggestion.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* =========================================================
+   STEAM HEADER
+========================================================= */
+
+.steam-suggestion-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color:
+        var(--yellow);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.steam-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        var(--yellow);
+
+    box-shadow:
+        0 0 8px
+        var(--yellow);
+
+    animation:
+        blink 2s infinite;
+
+}
+
+
+/* =========================================================
+   STEAM TEXTO
+========================================================= */
+
+.steam-login-suggestion p {
+
+    color:
+        var(--white);
+
+    font-size: 9px;
+
+    line-height: 1.6;
+
+    margin-bottom: 14px;
+
+}
+
+
+.steam-suggestion-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 14px;
+
+}
+
+
+.steam-suggestion-info span {
+
+    color:
+        var(--gray);
+
+    font-size: 7px;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+.steam-login-suggestion small {
+
+    display: block;
+
+    color:
+        #4b4b3e;
+
+    font-size: 7px;
+
+    line-height: 1.5;
+
+    margin-bottom: 14px;
+
+}
+
+
+/* =========================================================
+   BOTÃO STEAM
+========================================================= */
+
+.steam-suggestion-button {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 9px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(255, 230, 0, 0.4);
+
+    color:
+        var(--yellow);
+
+    text-decoration: none;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    transition:
+        0.2s;
+
+}
+
+
+.steam-suggestion-button:hover {
+
+    background:
+        rgba(255, 230, 0, 0.06);
+
+    border-color:
+        var(--yellow);
+
+    box-shadow:
+        0 0 12px
+        rgba(255, 230, 0, 0.12);
+
+}
+
+
+/* =========================================================
+   FECHAR
+========================================================= */
+
+.steam-suggestion-close {
+
+    width: 100%;
+
+    margin-top: 7px;
+
+    padding: 7px;
+
+    background:
+        transparent;
+
+    border: none;
+
+    color:
+        #555548;
+
+    font-family:
+        'JetBrains Mono',
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+}
+
+
+.steam-suggestion-close:hover {
+
+    color:
+        var(--gray);
+
+}
+
+
+/* =========================================================
+   LINHAS LATERAIS
+========================================================= */
+
+.side-line {
+
+    position: fixed;
+
+    top: 90px;
+    bottom: 45px;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255,230,0,0.15),
+            transparent
+        );
+
+    z-index: 2;
+
+}
+
+
+.left-line {
+
+    left: 4%;
+
+}
+
+
+.right-line {
+
+    right: 4%;
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.home {
+
+    width: 100%;
+
+    height: 100vh;
+
+}
+
+
+.hero {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding-top: 40px;
+
+}
+
+
+/* =========================================================
+   TOPO DO HERO
+========================================================= */
+
+.hero-top-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color:
+        #45453a;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 22px;
+
+    animation:
+        fadeDown 1s ease both;
+
+}
+
+
+.hero-top-label div {
+
+    width: 80px;
+
+    height: 1px;
+
+    background:
+        var(--border);
+
+}
+
+
+.hero-top-label span:first-child {
+
+    color:
+        var(--gold);
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-container {
+
+    width: 220px;
+    height: 220px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    animation:
+        logoAppear 1.2s ease both;
+
+}
+
+
+.logo-container img {
+
+    width: 155px;
+    height: 155px;
+
+    object-fit: contain;
+
+    position: relative;
+
+    z-index: 3;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255,183,0,0.4)
+        );
+
+    animation:
+        logoFloat 5s ease-in-out infinite;
+
+}
+
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-7px);
+
+    }
+
+}
+
+
+.logo-glow {
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,230,0,0.14),
+            transparent 65%
+        );
+
+    filter:
+        blur(8px);
+
+    animation:
+        logoPulse 4s ease-in-out infinite;
+
+}
+
+
+@keyframes logoPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(0.85);
+
+        opacity:
+            0.5;
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.15);
+
+        opacity:
+            1;
+
+    }
+
+}
+
+
+/* =========================================================
+   ANÉIS
+========================================================= */
+
+.logo-ring {
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(255,230,0,0.12);
+
+    border-radius: 50%;
+
+}
+
+
+.ring-one {
+
+    width: 185px;
+    height: 185px;
+
+    animation:
+        ringRotate 18s linear infinite;
+
+}
+
+
+.ring-two {
+
+    width: 215px;
+    height: 215px;
+
+    border-style:
+        dashed;
+
+    animation:
+        ringRotateReverse 25s linear infinite;
+
+}
+
+
+.ring-three {
+
+    width: 245px;
+    height: 245px;
+
+    border-color:
+        rgba(255,183,0,0.05);
+
+    animation:
+        ringPulse 5s ease-in-out infinite;
+
+}
+
+
+@keyframes ringRotate {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes ringRotateReverse {
+
+    to {
+
+        transform:
+            rotate(-360deg);
+
+    }
+
+}
+
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(0.95);
+
+        opacity:
+            0.3;
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.05);
+
+        opacity:
+            0.8;
+
+    }
+
+}
+
+
+/* =========================================================
+   NOME
+========================================================= */
+
+.hero h1 {
+
+    font-family:
+        'Rajdhani',
+        sans-serif;
+
+    font-size:
+        clamp(70px, 10vw, 150px);
+
+    line-height:
+        0.8;
+
+    letter-spacing:
+        -5px;
+
+    margin-bottom:
+        18px;
+
+    animation:
+        fadeUp 1s 0.2s ease both;
+
+}
+
+
+.hero h1 span {
+
+    color:
+        var(--yellow);
+
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+========================================================= */
+
+.subtitle {
+
+    color:
+        var(--gray);
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        5px;
+
+    animation:
+        fadeUp 1s 0.35s ease both;
+
+}
+
+
+/* =========================================================
+   LINHA
+========================================================= */
+
+.line {
+
+    width: 300px;
+
+    height: 1px;
+
+    margin:
+        30px 0 22px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--border),
+            transparent
+        );
+
+}
+
+
+.line span {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+    width: 45px;
+
+    height: 1px;
+
+    background:
+        var(--yellow);
+
+    transform:
+        translateX(-50%);
+
+    box-shadow:
+        0 0 8px
+        rgba(255,230,0,0.4);
+
+    animation:
+        lineMove 3s ease-in-out infinite;
+
+}
+
+
+@keyframes lineMove {
+
+    0%,
+    100% {
+
+        width:
+            25px;
+
+    }
+
+    50% {
+
+        width:
+            80px;
+
+    }
+
+}
+
+
+/* =========================================================
+   PROJETO
+========================================================= */
+
+.project {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    animation:
+        fadeUp 1s 0.5s ease both;
+
+}
+
+
+.project-label {
+
+    color:
+        var(--gray);
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        4px;
+
+}
+
+
+.project strong {
+
+    font-family:
+        'Rajdhani',
+        sans-serif;
+
+    font-size:
+        27px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.project strong span {
+
+    color:
+        var(--yellow);
+
+}
+
+
+.project-meta {
+
+    display: flex;
+
+    gap: 10px;
+
+    color:
+        #4c4c3e;
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.project-meta span:last-child {
+
+    color:
+        var(--gold);
+
+}
+
+
+/* =========================================================
+   EXPLORE
+========================================================= */
+
+.scroll {
+
+    position: absolute;
+
+    bottom: 75px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color:
+        var(--gray);
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        3px;
+
+}
+
+
+.scroll-line {
+
+    width: 1px;
+
+    height: 32px;
+
+    background:
+        linear-gradient(
+            var(--yellow),
+            transparent
+        );
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.scroll-line span {
+
+    position: absolute;
+
+    top: -10px;
+
+    left: 0;
+
+    width: 1px;
+
+    height: 10px;
+
+    background:
+        white;
+
+    animation:
+        scrollMove 2s linear infinite;
+
+}
+
+
+@keyframes scrollMove {
+
+    from {
+
+        top:
+            -10px;
+
+    }
+
+    to {
+
+        top:
+            42px;
+
+    }
+
+}
+
+
+/* =========================================================
+   ENTRADA
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes fadeDown {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(-15px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes logoAppear {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            scale(0.8);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 45px;
+
+    padding:
+        0 4%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    color:
+        #3d3d32;
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        2px;
+
+    border-top:
+        1px solid
+        rgba(45,45,26,0.5);
+
+    z-index: 10;
+
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .header {
+
+        height: auto;
+
+        min-height: 80px;
+
+        padding:
+            18px 4%;
+
+    }
+
+
+    .header-left,
+    .header-right {
+
+        width: auto;
+
+    }
+
+
+    nav {
+
+        gap: 18px;
+
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    body {
+
+        overflow-y: auto;
+
+    }
+
+
+    .header {
+
+        position: absolute;
+
+        flex-direction: column;
+
+        gap: 18px;
+
+    }
+
+
+    .header-left,
+    .header-right {
+
+        display: none;
+
+    }
+
+
+    nav {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    .hero {
+
+        min-height: 100vh;
+
+        height: auto;
+
+        padding:
+            150px 20px 100px;
+
+    }
+
+
+    .logo-container {
+
+        width: 180px;
+        height: 180px;
+
+    }
+
+
+    .logo-container img {
+
+        width: 125px;
+        height: 125px;
+
+    }
+
+
+    .ring-one {
+
+        width: 155px;
+        height: 155px;
+
+    }
+
+
+    .ring-two {
+
+        width: 180px;
+        height: 180px;
+
+    }
+
+
+    .ring-three {
+
+        width: 205px;
+        height: 205px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            70px;
+
+    }
+
+
+    .scroll {
+
+        display: none;
+
+    }
+
+
+    footer {
+
+        position: absolute;
+
+    }
+
+
+    .side-line {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    nav {
+
+        gap: 13px;
+
+    }
+
+
+    nav a {
+
+        font-size: 7px;
+
+    }
+
+
+    .logo-container {
+
+        width: 155px;
+        height: 155px;
+
+    }
+
+
+    .logo-container img {
+
+        width: 105px;
+        height: 105px;
+
+    }
+
+
+    .ring-one {
+
+        width: 135px;
+        height: 135px;
+
+    }
+
+
+    .ring-two {
+
+        width: 155px;
+        height: 155px;
+
+    }
+
+
+    .ring-three {
+
+        width: 175px;
+        height: 175px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            53px;
+
+        letter-spacing:
+            -3px;
+
+    }
+
+
+    .subtitle {
+
+        font-size:
+            7px;
+
+        letter-spacing:
+            3px;
+
+    }
+
+
+    .line {
+
+        width:
+            220px;
+
+    }
+
+
+    footer {
+
+        font-size:
+            6px;
+
+    }
+
+
+    footer span:last-child {
+
+        display:
+            none;
+
+    }
+
+
+    /* =====================================================
+       STEAM — MOBILE
+    ====================================================== */
+
+    .steam-login-suggestion {
+
+        position: fixed;
+
+        top: 95px;
+
+        left: 50%;
+
+        right: auto;
+
+        width:
+            calc(100% - 30px);
+
+        transform:
+            translate(-50%, -10px)
+            scale(0.97);
+
+        transform-origin:
+            top center;
+
+    }
+
+
+    .steam-login-suggestion.show {
+
+        transform:
+            translate(-50%, 0)
+            scale(1);
+
+    }
+
+
+    .steam-login-suggestion::before {
+
+        display:
+            none;
+
+    }
+
+}

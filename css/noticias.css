@@ -1,0 +1,1540 @@
+/* =========================================================
+   ANAVOYD STUDIO — NEWS
+========================================================= */
+
+:root {
+
+    --black: #050505;
+    --yellow: #ffe600;
+    --gold: #ffb700;
+
+    --white: #f5f5f0;
+    --gray: #88887b;
+    --dark-gray: #35352a;
+
+    --border: #29291a;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+    min-height: 100%;
+
+}
+
+
+body {
+
+    background: var(--black);
+
+    color: var(--white);
+
+    font-family:
+        'JetBrains Mono',
+        monospace;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,230,0,0.055),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(255,183,0,0.035),
+            transparent 25%
+        ),
+
+        #050505;
+
+    z-index: -10;
+
+}
+
+
+.grid-background {
+
+    position: fixed;
+
+    inset: -100px;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,230,0,0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,230,0,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    transform:
+        perspective(500px)
+        rotateX(55deg)
+        scale(1.7);
+
+    transform-origin:
+        center bottom;
+
+    animation:
+        gridMove 20s linear infinite;
+
+    z-index: -9;
+
+}
+
+
+@keyframes gridMove {
+
+    from {
+        background-position:
+            0 0,
+            0 0;
+    }
+
+    to {
+        background-position:
+            0 55px,
+            55px 0;
+    }
+
+}
+
+
+/* =========================================================
+   BRILHO
+========================================================= */
+
+.ambient-glow {
+
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 40%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,230,0,0.045),
+            transparent 65%
+        );
+
+    filter: blur(30px);
+
+    animation:
+        ambientPulse 6s ease-in-out infinite;
+
+    z-index: -8;
+
+}
+
+
+@keyframes ambientPulse {
+
+    0%,
+    100% {
+
+        opacity: .5;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.9);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.12);
+
+    }
+
+}
+
+
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
+
+.particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -5;
+
+}
+
+
+.particles span {
+
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background: var(--yellow);
+
+    box-shadow:
+        0 0 7px var(--yellow);
+
+    opacity: 0;
+
+    animation:
+        particleFloat
+        linear
+        infinite;
+
+}
+
+
+.particles span:nth-child(1) {
+    left: 10%;
+    top: 90%;
+    animation-duration: 9s;
+}
+
+.particles span:nth-child(2) {
+    left: 22%;
+    top: 70%;
+    animation-duration: 12s;
+}
+
+.particles span:nth-child(3) {
+    left: 38%;
+    top: 85%;
+    animation-duration: 8s;
+}
+
+.particles span:nth-child(4) {
+    left: 52%;
+    top: 75%;
+    animation-duration: 11s;
+}
+
+.particles span:nth-child(5) {
+    left: 67%;
+    top: 90%;
+    animation-duration: 10s;
+}
+
+.particles span:nth-child(6) {
+    left: 78%;
+    top: 65%;
+    animation-duration: 13s;
+}
+
+.particles span:nth-child(7) {
+    left: 90%;
+    top: 80%;
+    animation-duration: 9s;
+}
+
+.particles span:nth-child(8) {
+    left: 58%;
+    top: 40%;
+    animation-duration: 14s;
+}
+
+
+@keyframes particleFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(.5);
+
+        opacity: 0;
+
+    }
+
+    15% {
+        opacity: .6;
+    }
+
+    80% {
+        opacity: .3;
+    }
+
+    100% {
+
+        transform:
+            translateY(-300px)
+            scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   SCANLINES
+========================================================= */
+
+.scanlines {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(255,255,255,.018) 4px
+        );
+
+    z-index: 50;
+
+}
+
+
+/* =========================================================
+   VINHETA
+========================================================= */
+
+.vignette {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 48%,
+            rgba(0,0,0,.85) 100%
+        );
+
+    z-index: 49;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position: sticky;
+
+    top: 0;
+
+    width: 100%;
+
+    min-height: 90px;
+
+    padding:
+        0 4%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        rgba(5,5,5,.88);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid var(--border);
+
+    z-index: 30;
+
+}
+
+
+.header::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: -1px;
+    left: 0;
+
+    width: 25%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--yellow),
+            transparent
+        );
+
+    animation:
+        headerLine 5s ease-in-out infinite;
+
+}
+
+
+@keyframes headerLine {
+
+    0%,
+    100% {
+        width: 18%;
+    }
+
+    50% {
+        width: 35%;
+    }
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--white);
+
+    text-decoration: none;
+
+}
+
+
+.brand img {
+
+    width: 35px;
+    height: 35px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,230,0,.25)
+        );
+
+}
+
+
+.brand span {
+
+    font-family:
+        'Rajdhani',
+        sans-serif;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    font-size: 18px;
+
+}
+
+
+.brand span span {
+
+    color: var(--yellow);
+
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+nav {
+
+    display: flex;
+
+    gap: 27px;
+
+}
+
+
+nav a {
+
+    position: relative;
+
+    color: var(--gray);
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    transition: .25s;
+
+}
+
+
+nav a:hover,
+nav a.active {
+
+    color: var(--white);
+
+}
+
+
+nav a.active {
+
+    color: var(--yellow);
+
+}
+
+
+nav a::before {
+
+    content: ">";
+
+    position: absolute;
+
+    left: -12px;
+
+    color: var(--yellow);
+
+    opacity: 0;
+
+    transition: .2s;
+
+}
+
+
+nav a:hover::before,
+nav a.active::before {
+
+    opacity: 1;
+
+}
+
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -9px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--yellow);
+
+    transition: .25s;
+
+}
+
+
+nav a:hover::after,
+nav a.active::after {
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   HEADER STATUS
+========================================================= */
+
+.header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--gray);
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.status-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--yellow);
+
+    box-shadow:
+        0 0 8px var(--yellow);
+
+    animation:
+        blink 2s infinite;
+
+}
+
+
+@keyframes blink {
+
+    50% {
+        opacity: .25;
+    }
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.news-container {
+
+    width: min(1200px, 90%);
+
+    margin: auto;
+
+    padding:
+        80px 0 120px;
+
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.news-heading {
+
+    margin-bottom: 70px;
+
+}
+
+
+.heading-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #555548;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.heading-label span:first-child {
+
+    color: var(--gold);
+
+}
+
+
+.heading-label div {
+
+    width: 80px;
+    height: 1px;
+
+    background: var(--border);
+
+}
+
+
+.news-heading h1 {
+
+    font-family:
+        'Rajdhani',
+        sans-serif;
+
+    font-size:
+        clamp(65px, 9vw, 120px);
+
+    line-height: .85;
+
+    letter-spacing: -4px;
+
+}
+
+
+.news-heading h1 span {
+
+    color: var(--yellow);
+
+}
+
+
+.news-heading p {
+
+    margin-top: 20px;
+
+    color: var(--gray);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   FEATURED
+========================================================= */
+
+.featured-news {
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr
+        1fr;
+
+    min-height: 420px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(10,10,8,.75);
+
+    margin-bottom: 80px;
+
+    animation:
+        fadeUp .8s ease both;
+
+}
+
+
+.featured-image {
+
+    position: relative;
+
+    min-height: 420px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,230,0,.12),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #16160f,
+            #050505
+        );
+
+}
+
+
+.featured-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,230,0,.04) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,230,0,.04) 1px,
+            transparent 1px
+        );
+
+    background-size: 35px 35px;
+
+    animation:
+        gridMove 15s linear infinite;
+
+}
+
+
+.featured-image::after {
+
+    content: "NO7";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-family:
+        'Rajdhani',
+        sans-serif;
+
+    font-size: 130px;
+
+    font-weight: 700;
+
+    color: rgba(255,230,0,.035);
+
+    letter-spacing: -8px;
+
+}
+
+
+.image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,230,0,.05)
+        );
+
+    animation:
+        imageSweep 5s ease-in-out infinite;
+
+}
+
+
+@keyframes imageSweep {
+
+    0%,
+    100% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+.image-label,
+.image-status {
+
+    position: absolute;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    z-index: 2;
+
+}
+
+
+.image-label {
+
+    left: 20px;
+    top: 20px;
+
+    color: var(--gray);
+
+}
+
+
+.image-status {
+
+    right: 20px;
+    bottom: 20px;
+
+    color: var(--yellow);
+
+}
+
+
+/* =========================================================
+   FEATURED CONTENT
+========================================================= */
+
+.featured-content {
+
+    padding: 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.news-meta {
+
+    display: flex;
+
+    gap: 10px;
+
+    color: #59594c;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.news-meta .yellow {
+
+    color: var(--yellow);
+
+}
+
+
+.featured-content h2 {
+
+    margin:
+        20px 0;
+
+    font-family:
+        'Rajdhani',
+        sans-serif;
+
+    font-size: 42px;
+
+    line-height: .95;
+
+    letter-spacing: -1px;
+
+}
+
+
+.featured-content p {
+
+    color: #aaa99b;
+
+    font-size: 11px;
+
+    line-height: 1.9;
+
+    max-width: 520px;
+
+}
+
+
+.read-more {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    width: fit-content;
+
+    margin-top: 30px;
+
+    padding:
+        12px 18px;
+
+    border:
+        1px solid
+        rgba(255,230,0,.25);
+
+    color: var(--yellow);
+
+    text-decoration: none;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    transition: .3s;
+
+}
+
+
+.read-more span {
+
+    transition: .3s;
+
+}
+
+
+.read-more:hover {
+
+    background:
+        rgba(255,230,0,.06);
+
+    border-color:
+        var(--yellow);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,230,0,.08);
+
+}
+
+
+.read-more:hover span {
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    color: #5b5b4d;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.section-header div {
+
+    flex: 1;
+
+    height: 1px;
+
+    background: var(--border);
+
+}
+
+
+/* =========================================================
+   NEWS LIST
+========================================================= */
+
+.news-list {
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.news-card {
+
+    display: grid;
+
+    grid-template-columns:
+        80px
+        1fr
+        40px;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding:
+        30px 20px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    transition: .3s;
+
+    position: relative;
+
+}
+
+
+.news-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 2px;
+    height: 0;
+
+    background: var(--yellow);
+
+    transition: .3s;
+
+}
+
+
+.news-card:hover {
+
+    background:
+        rgba(255,230,0,.025);
+
+    padding-left: 28px;
+
+}
+
+
+.news-card:hover::before {
+
+    height: 100%;
+
+}
+
+
+.news-number {
+
+    color: #45453a;
+
+    font-family:
+        'Rajdhani',
+        sans-serif;
+
+    font-size: 30px;
+
+}
+
+
+.news-card-content h2 {
+
+    margin:
+        10px 0;
+
+    font-family:
+        'Rajdhani',
+        sans-serif;
+
+    font-size: 27px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.news-card-content p {
+
+    color: #89897c;
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+    max-width: 700px;
+
+}
+
+
+.news-arrow {
+
+    color: var(--yellow);
+
+    font-size: 20px;
+
+    transition: .3s;
+
+}
+
+
+.news-card:hover .news-arrow {
+
+    transform:
+        translateX(7px);
+
+}
+
+
+/* =========================================================
+   COMING SOON
+========================================================= */
+
+.coming-soon {
+
+    margin-top: 100px;
+
+    padding:
+        60px 30px;
+
+    text-align: center;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,230,0,.015);
+
+}
+
+
+.coming-label {
+
+    color: var(--gold);
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.coming-soon h2 {
+
+    margin:
+        20px 0;
+
+    font-family:
+        'Rajdhani',
+        sans-serif;
+
+    font-size:
+        clamp(35px, 5vw, 60px);
+
+}
+
+
+.coming-soon h2 span {
+
+    color: var(--yellow);
+
+}
+
+
+.coming-soon p {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    color: var(--gray);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+}
+
+
+.signal {
+
+    margin-top: 30px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #555548;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.signal span {
+
+    width: 5px;
+    height: 5px;
+
+    background: var(--yellow);
+
+    animation:
+        blink 1.5s infinite;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    min-height: 50px;
+
+    padding:
+        0 4%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-top:
+        1px solid var(--border);
+
+    color: #3f3f34;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================================
+   ENTRADA
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .header {
+
+        flex-wrap: wrap;
+
+        padding:
+            18px 4%;
+
+        gap: 15px;
+
+    }
+
+
+    nav {
+
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        padding-bottom: 5px;
+
+    }
+
+
+    .featured-news {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .featured-image {
+
+        min-height: 280px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .news-container {
+
+        width: 92%;
+
+        padding-top: 50px;
+
+    }
+
+
+    .header-left {
+
+        display: none;
+
+    }
+
+
+    nav {
+
+        gap: 15px;
+
+    }
+
+
+    nav a {
+
+        font-size: 7px;
+
+    }
+
+
+    .header-right {
+
+        display: none;
+
+    }
+
+
+    .news-heading {
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .featured-content {
+
+        padding: 30px;
+
+    }
+
+
+    .featured-content h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .news-card {
+
+        grid-template-columns:
+            40px
+            1fr
+            20px;
+
+        gap: 12px;
+
+        padding:
+            25px 10px;
+
+    }
+
+
+    .news-number {
+
+        font-size: 20px;
+
+    }
+
+
+    .news-card-content h2 {
+
+        font-size: 20px;
+
+    }
+
+
+    footer {
+
+        padding:
+            15px 4%;
+
+        gap: 15px;
+
+    }
+
+
+    footer span:last-child {
+
+        display: none;
+
+    }
+
+}
