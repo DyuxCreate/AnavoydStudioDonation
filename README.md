@@ -26,7 +26,7 @@ More than simply supporting the project through donations, users can become part
 
 ## Project Status
 
-🚧 Active Development
+🚧 **Active Development**
 
 The project is continuously being improved and expanded.
 
@@ -36,4 +36,4 @@ The project is continuously being improved and expanded.
 
 ## Author
 
-DyuxCreate
+**DyuxCreate**
