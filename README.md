@@ -32,7 +32,7 @@ The project is continuously being improved and expanded.
 
 ## Live Website
 
-[Anavoyd Studio](AnavoydStudio.com)
+[Anavoyd Studio](AnavoydStudio.com.br)
 
 ## Author
 
