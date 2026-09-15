@@ -315,7 +315,7 @@ el.confirmPixBtn?.addEventListener('click', async () => {
                             SEU PIX FOI CONFIRMADO E SEU TIER JÁ FOI ATUALIZADO COM SUCESSO.
                         </p>
                         
-                        <a href="https://discord.gg/3AExjcdCvp" target="_blank" class="cyber-btn confirm-btn" style="display: block; text-decoration: none; text-align: center; padding: 1rem; background: rgba(57, 255, 20, 0.1); border-color: var(--neon-green); color: var(--neon-green);">
+                        <a href="https://discord.gg/4hBJNXxyPz" target="_blank" class="cyber-btn confirm-btn" style="display: block; text-decoration: none; text-align: center; padding: 1rem; background: rgba(57, 255, 20, 0.1); border-color: var(--neon-green); color: var(--neon-green);">
                             > ENTRAR_NO_SERVIDOR_DO_PROJETO
                         </a>
                     </div>
